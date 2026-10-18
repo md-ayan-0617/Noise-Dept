@@ -15,7 +15,7 @@ export const Contact: React.FC = () => {
 
   return (
     <div style={{ backgroundColor: '#0B0B0B', color: '#E8E6DF', minHeight: '100vh', paddingTop: '110px' }}>
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '60px 32px 140px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(60px, 12vw, 140px) var(--pad-section-x)' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // DIRECT DISPATCH
         </div>
@@ -23,12 +23,12 @@ export const Contact: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(54px, 12vw, 185px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.85,
             textTransform: 'uppercase',
             letterSpacing: '-0.03em',
-            margin: '0 0 64px 0',
+            margin: '0 0 clamp(32px, 5vw, 64px) 0',
           }}
         >
           DON'T <br />
@@ -41,7 +41,7 @@ export const Contact: React.FC = () => {
           style={{
             borderTop: '1px solid rgba(232, 230, 223, 0.15)',
             borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
-            padding: '48px 0',
+            padding: 'clamp(28px, 4vw, 48px) 0',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
@@ -49,7 +49,7 @@ export const Contact: React.FC = () => {
             gap: '24px',
           }}
         >
-          <div>
+          <div style={{ maxWidth: '100%' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#777', letterSpacing: '0.1em', marginBottom: '8px' }}>
               PRIMARY ELECTRONIC MAIL
             </div>
@@ -59,10 +59,13 @@ export const Contact: React.FC = () => {
                 textDecoration: 'none',
                 color: '#E8E6DF',
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(32px, 5.5vw, 84px)',
+                fontSize: 'clamp(24px, 5.2vw, 84px)',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
                 transition: 'color 0.2s ease',
+                wordBreak: 'break-all',
+                display: 'inline-block',
+                maxWidth: '100%',
               }}
               onMouseEnter={(e) => {
                 setCursor('out');
@@ -94,9 +97,9 @@ export const Contact: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '40px',
-            marginTop: '64px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+            gap: 'clamp(24px, 3.5vw, 40px)',
+            marginTop: 'clamp(36px, 5vw, 64px)',
             fontFamily: 'var(--font-mono)',
             fontSize: '13px',
           }}

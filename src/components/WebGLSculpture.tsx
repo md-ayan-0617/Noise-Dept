@@ -26,7 +26,8 @@ export const WebGLSculpture: React.FC = () => {
     scene.background = new THREE.Color(0x0b0b0b);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.set(0, 0, 7.5);
+    const getTargetZ = (w: number) => (w < 480 ? 11.8 : w < 768 ? 9.5 : 7.5);
+    camera.position.set(0, 0, getTargetZ(width));
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setSize(width, height);
@@ -219,6 +220,7 @@ export const WebGLSculpture: React.FC = () => {
       const w = container.clientWidth;
       const h = container.clientHeight || 500;
       camera.aspect = w / h;
+      camera.position.z = getTargetZ(w);
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
     };

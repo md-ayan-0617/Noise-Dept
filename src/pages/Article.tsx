@@ -42,7 +42,7 @@ export const Article: React.FC = () => {
         }}
       />
 
-      <article style={{ maxWidth: '1440px', margin: '0 auto', padding: '60px 32px 120px 32px' }}>
+      <article style={{ maxWidth: '1440px', margin: '0 auto', padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)' }}>
         {/* Back Link */}
         <Link
           to="/notes"
@@ -53,7 +53,7 @@ export const Article: React.FC = () => {
             textDecoration: 'none',
             letterSpacing: '0.1em',
             display: 'inline-block',
-            marginBottom: '32px',
+            marginBottom: '28px',
           }}
           onMouseEnter={() => setCursor('default')}
         >
@@ -61,8 +61,8 @@ export const Article: React.FC = () => {
         </Link>
 
         {/* Article Header */}
-        <div style={{ borderBottom: '1px solid rgba(232, 230, 223, 0.15)', paddingBottom: '40px' }}>
-          <div style={{ display: 'flex', gap: '16px', fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', marginBottom: '16px' }}>
+        <div style={{ borderBottom: '1px solid rgba(232, 230, 223, 0.15)', paddingBottom: 'clamp(24px, 3.5vw, 40px)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px', fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', marginBottom: '16px' }}>
             <span>{note.number}</span>
             <span>// {note.category}</span>
             <span>// {note.date}</span>
@@ -72,18 +72,18 @@ export const Article: React.FC = () => {
           <h1
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(40px, 6.5vw, 96px)',
+              fontSize: 'clamp(32px, 6vw, 96px)',
               fontWeight: 900,
               lineHeight: 0.95,
               textTransform: 'uppercase',
               letterSpacing: '-0.02em',
-              margin: '0 0 32px 0',
+              margin: '0 0 clamp(20px, 3vw, 32px) 0',
             }}
           >
             {note.title}
           </h1>
 
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(20px, 2vw, 28px)', lineHeight: 1.45, color: '#aaa', maxWidth: '900px' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(17px, 1.8vw, 26px)', lineHeight: 1.45, color: '#aaa', maxWidth: '900px' }}>
             {note.content.intro}
           </p>
         </div>
@@ -93,8 +93,8 @@ export const Article: React.FC = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(200px, 280px) minmax(0, 1fr)',
-            gap: '64px',
-            paddingTop: '60px',
+            gap: 'clamp(32px, 4vw, 64px)',
+            paddingTop: 'clamp(32px, 4vw, 60px)',
             alignItems: 'flex-start',
           }}
           className="article-layout"
@@ -126,22 +126,22 @@ export const Article: React.FC = () => {
           </aside>
 
           {/* Main Body Content */}
-          <div style={{ maxWidth: '820px' }}>
+          <div style={{ maxWidth: '820px', minWidth: 0, width: '100%' }}>
             {note.content.sections.map((sec, idx) => (
-              <section key={idx} id={`sec-${idx}`} style={{ marginBottom: '64px' }}>
+              <section key={idx} id={`sec-${idx}`} style={{ marginBottom: 'clamp(40px, 5vw, 64px)' }}>
                 <h2
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(28px, 3.5vw, 44px)',
+                    fontSize: 'clamp(24px, 3.2vw, 44px)',
                     fontWeight: 800,
                     textTransform: 'uppercase',
-                    marginBottom: '18px',
+                    marginBottom: '16px',
                   }}
                 >
                   {sec.heading}
                 </h2>
 
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', lineHeight: 1.7, color: '#ccc' }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: 1.7, color: '#ccc' }}>
                   {sec.body}
                 </p>
 
@@ -150,10 +150,10 @@ export const Article: React.FC = () => {
                   <blockquote
                     style={{
                       borderLeft: '3px solid #C7FF32',
-                      paddingLeft: '24px',
-                      margin: '36px 0',
+                      paddingLeft: 'clamp(14px, 2vw, 24px)',
+                      margin: 'clamp(24px, 3vw, 36px) 0',
                       fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(22px, 2.5vw, 34px)',
+                      fontSize: 'clamp(20px, 2.4vw, 34px)',
                       fontWeight: 800,
                       lineHeight: 1.25,
                       color: '#E8E6DF',
@@ -170,13 +170,15 @@ export const Article: React.FC = () => {
                     style={{
                       backgroundColor: '#141414',
                       border: '1px solid rgba(232, 230, 223, 0.15)',
-                      padding: '20px',
+                      padding: 'clamp(14px, 2vw, 20px)',
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '13px',
+                      fontSize: 'clamp(11px, 1.5vw, 13px)',
                       color: '#C7FF32',
                       overflowX: 'auto',
+                      maxWidth: '100%',
                       margin: '24px 0',
                       lineHeight: 1.5,
+                      boxSizing: 'border-box',
                     }}
                   >
                     <code>{sec.code}</code>
@@ -189,15 +191,15 @@ export const Article: React.FC = () => {
             <div
               style={{
                 borderTop: '1px solid rgba(232, 230, 223, 0.15)',
-                paddingTop: '32px',
-                marginTop: '60px',
+                paddingTop: '28px',
+                marginTop: 'clamp(36px, 5vw, 60px)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '12px',
                 color: '#777',
               }}
             >
               <div>WRITTEN BY NOISE DEPT. ARCHITECTURE TEAM</div>
-              <div style={{ marginTop: '4px' }}>QUESTIONS OR REBUTTALS? DISPATCH VIA HELLO@NOISEDEPT.STUDIO</div>
+              <div style={{ marginTop: '6px', wordBreak: 'break-all' }}>QUESTIONS OR REBUTTALS? DISPATCH VIA HELLO@NOISEDEPT.STUDIO</div>
             </div>
           </div>
         </div>

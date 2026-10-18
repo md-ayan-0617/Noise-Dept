@@ -29,7 +29,7 @@ export const Archive: React.FC = () => {
 
   return (
     <div style={{ backgroundColor: '#0B0B0B', color: '#E8E6DF', minHeight: '100vh', paddingTop: '110px' }}>
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '60px 32px 140px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(60px, 12vw, 140px) var(--pad-section-x)' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#3155FF', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // FULL VISUAL ARCHIVE // 2022—2026
         </div>
@@ -37,12 +37,12 @@ export const Archive: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(52px, 11vw, 175px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.88,
             textTransform: 'uppercase',
             letterSpacing: '-0.03em',
-            margin: '0 0 64px 0',
+            margin: '0 0 clamp(32px, 5vw, 64px) 0',
           }}
         >
           COMPLETE <br />
@@ -56,21 +56,21 @@ export const Archive: React.FC = () => {
               key={idx}
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'minmax(50px, 80px) minmax(240px, 2fr) minmax(180px, 1.2fr) minmax(140px, 1fr) minmax(80px, 100px)',
-                padding: '24px 0',
+                gridTemplateColumns: 'minmax(46px, 70px) minmax(200px, 2fr) minmax(140px, 1.2fr) minmax(120px, 1fr) minmax(60px, 80px)',
+                padding: 'clamp(16px, 2.5vw, 24px) 0',
                 borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
                 alignItems: 'center',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '13px',
-                gap: '16px',
+                gap: 'clamp(10px, 1.5vw, 16px)',
               }}
               className="archive-table-row"
             >
-              <span style={{ color: item.accent, fontWeight: 700 }}>
+              <span className="archive-id" style={{ color: item.accent, fontWeight: 700 }}>
                 [{item.id}]
               </span>
 
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.5vw, 36px)', fontWeight: 800 }}>
+              <div className="archive-title" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.5vw, 36px)', fontWeight: 800 }}>
                 {item.slug ? (
                   <Link
                     to={`/work/${item.slug}`}
@@ -85,14 +85,14 @@ export const Archive: React.FC = () => {
                 )}
               </div>
 
-              <div style={{ color: '#888' }}>{item.client}</div>
-              <div style={{ color: '#aaa' }}>{item.category}</div>
-              <div style={{ color: '#777', textAlign: 'right' }}>{item.year}</div>
+              <div className="archive-client" style={{ color: '#888' }}>{item.client}</div>
+              <div className="archive-category" style={{ color: '#aaa' }}>{item.category}</div>
+              <div className="archive-year" style={{ color: '#777', textAlign: 'right' }}>{item.year}</div>
             </div>
           ))}
         </div>
 
-        <div style={{ marginTop: '64px', textAlign: 'center' }}>
+        <div style={{ marginTop: 'clamp(36px, 5vw, 64px)', textAlign: 'center' }}>
           <Link to="/work" className="btn-raw" onMouseEnter={() => setCursor('open')} onMouseLeave={() => setCursor('default')}>
             ← BACK TO CURATED WORK
           </Link>
@@ -102,7 +102,30 @@ export const Archive: React.FC = () => {
       <style>{`
         @media (max-width: 860px) {
           .archive-table-row {
-            grid-template-columns: 40px 1fr 80px !important;
+            grid-template-columns: 46px 1fr !important;
+            gap: 6px 12px !important;
+            padding: 16px 0 !important;
+          }
+          .archive-id {
+            grid-column: 1 !important;
+            grid-row: 1 !important;
+          }
+          .archive-title {
+            grid-column: 2 !important;
+            grid-row: 1 !important;
+          }
+          .archive-client {
+            grid-column: 2 !important;
+            grid-row: 2 !important;
+          }
+          .archive-category {
+            grid-column: 2 !important;
+            grid-row: 3 !important;
+          }
+          .archive-year {
+            grid-column: 2 !important;
+            grid-row: 4 !important;
+            text-align: left !important;
           }
         }
       `}</style>

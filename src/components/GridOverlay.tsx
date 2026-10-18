@@ -31,14 +31,15 @@ export const GridOverlay: React.FC = () => {
             position: 'fixed',
             top: 0,
             left: 0,
-            width: '100vw',
+            width: '100%',
+            maxWidth: '100vw',
             height: '100vh',
             pointerEvents: 'none',
             zIndex: 99990,
             display: 'grid',
             gridTemplateColumns: 'repeat(12, 1fr)',
-            gap: '16px',
-            padding: '0 32px',
+            gap: 'clamp(4px, 1.2vw, 16px)',
+            padding: '0 var(--pad-section-x)',
             boxSizing: 'border-box',
           }}
         >
@@ -76,8 +77,8 @@ export const GridOverlay: React.FC = () => {
         title="Toggle 12-column layout grid (Press G)"
         style={{
           position: 'fixed',
-          bottom: '24px',
-          right: '24px',
+          bottom: 'clamp(14px, 2vw, 24px)',
+          right: 'clamp(14px, 2vw, 24px)',
           zIndex: 99995,
           background: gridVisible ? '#EC3D31' : 'rgba(11, 11, 11, 0.85)',
           color: gridVisible ? '#0B0B0B' : '#E8E6DF',

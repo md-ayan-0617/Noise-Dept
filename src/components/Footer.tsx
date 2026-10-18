@@ -67,16 +67,18 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Main Footer Container */}
-      <div style={{ padding: '60px 32px 32px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      {/* Main Footer Container */}
+      <div style={{ padding: 'clamp(40px, 6vw, 60px) clamp(16px, 4vw, 32px) clamp(24px, 4vw, 32px)', maxWidth: '1600px', margin: '0 auto' }}>
         {/* Top Call to Action */}
         <div
+          className="footer-cta-row"
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            gap: '32px',
-            marginBottom: '64px',
+            gap: '24px',
+            marginBottom: 'clamp(36px, 6vw, 64px)',
           }}
         >
           <div>
@@ -86,7 +88,7 @@ export const Footer: React.FC = () => {
             <div
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(32px, 5vw, 64px)',
+                fontSize: 'clamp(28px, 5vw, 64px)',
                 fontWeight: 800,
                 lineHeight: 1,
               }}
@@ -99,9 +101,9 @@ export const Footer: React.FC = () => {
             to="/start"
             className="btn-raw-solid"
             style={{
-              padding: '16px 36px',
+              padding: '14px 28px',
               fontSize: '13px',
-              alignSelf: 'center',
+              alignSelf: 'flex-start',
             }}
             onMouseEnter={() => setCursor('start')}
             onMouseLeave={() => setCursor('default')}
@@ -114,11 +116,11 @@ export const Footer: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '32px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))',
+            gap: '28px',
             borderTop: '1px solid rgba(232, 230, 223, 0.12)',
-            paddingTop: '40px',
-            marginBottom: '60px',
+            paddingTop: '32px',
+            marginBottom: 'clamp(36px, 6vw, 60px)',
             fontFamily: 'var(--font-mono)',
             fontSize: '12px',
           }}
@@ -152,7 +154,7 @@ export const Footer: React.FC = () => {
           <div>
             <div style={{ color: '#777', marginBottom: '12px', letterSpacing: '0.08em' }}>// DIRECT</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <Link to="/contact" style={{ color: '#E8E6DF', textDecoration: 'none' }}>hello@noisedept.studio</Link>
+              <Link to="/contact" style={{ color: '#E8E6DF', textDecoration: 'none', wordBreak: 'break-all' }}>hello@noisedept.studio</Link>
               <span style={{ color: '#888' }}>PGP: 4A89 90DF 12C0</span>
               <span style={{ color: '#888' }}>SIGNAL: ON REQUEST</span>
             </div>
@@ -173,17 +175,21 @@ export const Footer: React.FC = () => {
         {/* Massive Scroll-Linked Wordmark: NOISE DEPT. */}
         <div
           ref={wordmarkRef}
+          className="footer-wordmark"
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(52px, 15vw, 240px)',
+            fontSize: 'clamp(28px, 12.5vw, 240px)',
             fontWeight: 900,
             lineHeight: 0.85,
             textTransform: 'uppercase',
             letterSpacing: '-0.03em',
-            margin: '40px 0 20px 0',
+            margin: '32px 0 20px 0',
             userSelect: 'none',
             whiteSpace: 'nowrap',
             color: '#E8E6DF',
+            maxWidth: '100%',
+            overflow: 'hidden',
+            textOverflow: 'clip',
             transition: 'font-variation-settings 0.15s ease-out',
           }}
         >
@@ -199,7 +205,7 @@ export const Footer: React.FC = () => {
             alignItems: 'center',
             gap: '16px',
             borderTop: '1px solid rgba(232, 230, 223, 0.12)',
-            paddingTop: '24px',
+            paddingTop: '20px',
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
             color: '#777',
@@ -209,7 +215,7 @@ export const Footer: React.FC = () => {
             © NOISE DEPT. 2026. ALL RIGHTS RESERVED. NO COOKIES UNLESS WE ACTUALLY NEED THEM.
           </div>
 
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
             <Link to="/start" style={{ color: '#777', textDecoration: 'none' }}>BRIEF</Link>
             <Link to="/about" style={{ color: '#777', textDecoration: 'none' }}>ACCESSIBILITY</Link>
             <button
@@ -229,6 +235,15 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .footer-wordmark {
+            font-size: clamp(26px, 12.2vw, 68px) !important;
+            letter-spacing: -0.04em !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 };

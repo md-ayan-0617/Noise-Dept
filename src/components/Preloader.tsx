@@ -47,7 +47,8 @@ export const Preloader: React.FC = () => {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100vw',
+        width: '100%',
+        maxWidth: '100vw',
         height: '100vh',
         zIndex: 999999,
         pointerEvents: isTorn ? 'none' : 'all',
@@ -68,7 +69,7 @@ export const Preloader: React.FC = () => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          padding: '32px',
+          padding: 'clamp(16px, 3vw, 32px)',
           boxSizing: 'border-box',
           borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
         }}
@@ -92,7 +93,7 @@ export const Preloader: React.FC = () => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
-          padding: '32px',
+          padding: 'clamp(16px, 3vw, 32px)',
           boxSizing: 'border-box',
           borderTop: '1px solid rgba(232, 230, 223, 0.15)',
         }}
@@ -126,7 +127,7 @@ export const Preloader: React.FC = () => {
           style={{
             position: 'absolute',
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(90px, 16vw, 240px)',
+            fontSize: 'clamp(64px, 16vw, 240px)',
             color: 'rgba(232, 230, 223, 0.05)',
             textTransform: 'uppercase',
             userSelect: 'none',
@@ -145,6 +146,7 @@ export const Preloader: React.FC = () => {
             flexDirection: 'column',
             alignItems: 'center',
             gap: '8px',
+            maxWidth: '90%',
           }}
         >
           <div
@@ -161,10 +163,11 @@ export const Preloader: React.FC = () => {
           <div
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
+              fontSize: 'clamp(9px, 2.5vw, 11px)',
               color: '#E8E6DF',
-              letterSpacing: '0.2em',
+              letterSpacing: 'clamp(0.08em, 1.5vw, 0.2em)',
               textTransform: 'uppercase',
+              textAlign: 'center',
             }}
           >
             INITIALIZING CONTROLLED DISORDER

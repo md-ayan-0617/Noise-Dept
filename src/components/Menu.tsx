@@ -120,7 +120,8 @@ export const Menu: React.FC = () => {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100vw',
+        width: '100%',
+        maxWidth: '100vw',
         height: '100vh',
         backgroundColor: '#E9E7E0',
         color: '#111111',
@@ -149,7 +150,7 @@ export const Menu: React.FC = () => {
       {/* Top Bar / Header in Menu */}
       <div
         style={{
-          padding: '20px 28px',
+          padding: 'clamp(14px, 2vw, 20px) clamp(16px, 2.5vw, 28px)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -197,7 +198,7 @@ export const Menu: React.FC = () => {
         <div
           className="menu-links-container"
           style={{
-            padding: '20px 40px',
+            padding: 'clamp(16px, 2vw, 20px) clamp(20px, 3.5vw, 40px)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -223,7 +224,7 @@ export const Menu: React.FC = () => {
                   color: isHovered ? '#EC3D31' : '#111111',
                   display: 'flex',
                   alignItems: 'baseline',
-                  gap: '20px',
+                  gap: 'clamp(12px, 2vw, 20px)',
                   transition: 'color 0.15s ease',
                   padding: '4px 0',
                 }}
@@ -242,7 +243,7 @@ export const Menu: React.FC = () => {
                 <span
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(32px, 5.2vw, 72px)',
+                    fontSize: 'clamp(26px, 4.8vw, 72px)',
                     lineHeight: 1,
                     textTransform: 'uppercase',
                     fontVariationSettings: isHovered ? '"wdth" 220, "wght" 900' : '"wdth" 60, "wght" 700',

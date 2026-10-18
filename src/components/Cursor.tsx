@@ -175,8 +175,8 @@ export const Cursor: React.FC = () => {
         )}
       </div>
 
-      {/* Floating Image Preview on Hover Mode */}
-      {previewImage && (
+      {/* Floating Image Preview on Hover Mode (Desktop only) */}
+      {previewImage && typeof window !== 'undefined' && window.innerWidth >= 1024 && (
         <div
           ref={previewRef}
           style={{

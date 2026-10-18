@@ -115,7 +115,7 @@ export const Lab: React.FC = () => {
       {/* =====================================================
           LAB HERO
           ===================================================== */}
-      <section style={{ padding: '60px 32px 40px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(24px, 4vw, 40px) var(--pad-section-x)', maxWidth: '1600px', margin: '0 auto' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // EXPERIMENTAL RESEARCH & PLAYGROUND
         </div>
@@ -123,7 +123,7 @@ export const Lab: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(48px, 10vw, 160px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.88,
             textTransform: 'uppercase',
@@ -145,12 +145,12 @@ export const Lab: React.FC = () => {
       {/* =====================================================
           EXPERIMENTS SELECTOR TABS
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 32px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(20px, 3vw, 32px) var(--pad-section-x)' }}>
         <div
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '12px',
+            gap: '10px',
             borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
             paddingBottom: '24px',
           }}
@@ -166,7 +166,7 @@ export const Lab: React.FC = () => {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '12px',
                 fontWeight: 700,
-                padding: '8px 16px',
+                padding: '8px 14px',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
               }}
@@ -183,14 +183,15 @@ export const Lab: React.FC = () => {
       {/* =====================================================
           ACTIVE EXPERIMENT INTERACTIVE STAGE
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 120px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)' }}>
         <div
           style={{
             border: '2px solid rgba(232, 230, 223, 0.25)',
             backgroundColor: '#121212',
-            padding: 'clamp(20px, 4vw, 48px)',
-            minHeight: '480px',
+            padding: 'clamp(16px, 3.5vw, 48px)',
+            minHeight: '440px',
             position: 'relative',
+            overflow: 'hidden',
           }}
         >
           {/* EXPERIMENT 01: TYPE REACTOR */}
@@ -212,7 +213,7 @@ export const Lab: React.FC = () => {
                 setTypeWeight(Math.floor(200 + normY * 700));
               }}
               style={{
-                minHeight: '400px',
+                minHeight: '360px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -227,20 +228,22 @@ export const Lab: React.FC = () => {
               <div
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(40px, 9vw, 135px)',
+                  fontSize: 'clamp(36px, 8.5vw, 135px)',
                   lineHeight: 0.9,
                   textAlign: 'center',
                   fontVariationSettings: `"wdth" ${typeWidth}, "wght" ${typeWeight}`,
                   color: '#E8E6DF',
                   userSelect: 'none',
                   transition: 'font-variation-settings 0.05s ease',
+                  wordBreak: 'break-word',
+                  maxWidth: '100%',
                 }}
               >
                 KINETIC <br />
                 DISORDER
               </div>
 
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#777', marginTop: '32px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#777', marginTop: '28px', textAlign: 'center' }}>
                 AXIS WDTH: <strong style={{ color: '#C7FF32' }}>{typeWidth}</strong> // AXIS WGHT: <strong style={{ color: '#C7FF32' }}>{typeWeight}</strong>
               </div>
             </div>
@@ -266,6 +269,7 @@ export const Lab: React.FC = () => {
                 style={{
                   border: '1px solid #333',
                   maxWidth: '100%',
+                  height: 'auto',
                   cursor: 'crosshair',
                   backgroundColor: '#000',
                   touchAction: 'none',
@@ -276,17 +280,18 @@ export const Lab: React.FC = () => {
 
           {/* EXPERIMENT 03: WEBGL POSTER */}
           {activeExperiment === 'webgl-poster' && (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '400px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '380px' }}>
               <div
                 style={{
-                  width: 'clamp(260px, 42vw, 460px)',
-                  height: '400px',
+                  width: 'clamp(240px, 42vw, 440px)',
+                  maxWidth: '92%',
+                  minHeight: '360px',
                   backgroundColor: '#EC3D31',
                   color: '#0B0B0B',
-                  padding: '32px',
-                  boxShadow: '16px 16px 0px #C7FF32',
+                  padding: 'clamp(20px, 3.5vw, 32px)',
+                  boxShadow: 'clamp(8px, 1.5vw, 16px) clamp(8px, 1.5vw, 16px) 0px #C7FF32',
                   border: '2px solid #0B0B0B',
-                  transform: 'rotate(-3deg) perspective(600px) rotateY(-5deg)',
+                  transform: 'rotate(-2deg) perspective(600px) rotateY(-4deg)',
                   transition: 'transform 0.2s ease',
                 }}
                 onMouseMove={(e) => {
@@ -303,7 +308,7 @@ export const Lab: React.FC = () => {
                   e.currentTarget.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg)`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotate(-3deg) perspective(600px) rotateY(-5deg)';
+                  e.currentTarget.style.transform = 'rotate(-2deg) perspective(600px) rotateY(-4deg)';
                 }}
               >
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700 }}>POSTER_03 // SPECIMEN</div>
@@ -322,7 +327,7 @@ export const Lab: React.FC = () => {
           {/* EXPERIMENT 04: SOUND GRID */}
           {activeExperiment === 'sound-grid' && (
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#C7FF32', marginBottom: '24px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#C7FF32', marginBottom: '20px' }}>
                 // 16-STEP VISUAL DRUM & SYNTHESIZER MATRIX (CLICK TO ENGAGE CELLS)
               </div>
 
@@ -330,7 +335,7 @@ export const Lab: React.FC = () => {
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(4, 1fr)',
-                  gap: '12px',
+                  gap: 'clamp(6px, 1.5vw, 12px)',
                   maxWidth: '540px',
                   margin: '0 auto',
                 }}
@@ -340,15 +345,16 @@ export const Lab: React.FC = () => {
                     key={i}
                     onClick={() => toggleSoundCell(i)}
                     style={{
-                      height: '75px',
+                      height: 'clamp(56px, 10vw, 75px)',
                       backgroundColor: active ? '#C7FF32' : '#1a1a1a',
                       color: active ? '#0B0B0B' : '#777',
                       border: '1px solid rgba(232, 230, 223, 0.2)',
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '12px',
+                      fontSize: 'clamp(10px, 2.4vw, 12px)',
                       fontWeight: 700,
                       cursor: 'pointer',
                       transition: 'all 0.12s ease',
+                      padding: '4px',
                     }}
                     onMouseEnter={() => setCursor('play')}
                     onMouseLeave={() => setCursor('default')}
@@ -363,16 +369,16 @@ export const Lab: React.FC = () => {
 
           {/* EXPERIMENT 05: CURSOR MACHINE */}
           {activeExperiment === 'cursor-machine' && (
-            <div style={{ textAlign: 'center', minHeight: '360px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ textAlign: 'center', minHeight: '340px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#EC3D31', marginBottom: '16px' }}>
                 // INERTIAL POINTER DYNAMICS TEST
               </div>
 
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.8vw, 52px)', fontWeight: 800 }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3.8vw, 52px)', fontWeight: 800 }}>
                 HOVER OVER CUSTOM TARGETS
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '32px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '28px', flexWrap: 'wrap' }}>
                 <button
                   onMouseEnter={() => setCursor('break', 'OVERHEAT')}
                   onMouseLeave={() => setCursor('default')}
@@ -400,7 +406,7 @@ export const Lab: React.FC = () => {
 
           {/* EXPERIMENT 06: BROKEN CLOCK */}
           {activeExperiment === 'broken-clock' && (
-            <div style={{ textAlign: 'center', minHeight: '360px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ textAlign: 'center', minHeight: '340px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#777', marginBottom: '16px' }}>
                 // NON-LINEAR INDUSTRIAL CHRONOMETER
               </div>
@@ -408,16 +414,17 @@ export const Lab: React.FC = () => {
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(32px, 5.5vw, 76px)',
+                  fontSize: 'clamp(22px, 5.2vw, 76px)',
                   fontWeight: 900,
                   color: '#C7FF32',
-                  letterSpacing: '0.08em',
+                  letterSpacing: '0.04em',
+                  wordBreak: 'break-all',
                 }}
               >
                 {brokenTime.h}:{brokenTime.m}:{brokenTime.s}.{brokenTime.ms}
               </div>
 
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#EC3D31', marginTop: '16px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', marginTop: '16px' }}>
                 BINARY REGISTER: [{brokenTime.bin}]
               </div>
             </div>

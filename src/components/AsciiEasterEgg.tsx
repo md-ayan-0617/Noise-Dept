@@ -71,18 +71,20 @@ export const AsciiEasterEgg: React.FC = () => {
         zIndex: 99999,
         backgroundColor: '#C7FF32',
         color: '#0B0B0B',
-        padding: '6px 16px',
+        padding: '6px 12px',
         fontFamily: 'var(--font-mono)',
-        fontSize: '11px',
+        fontSize: 'clamp(9px, 2.2vw, 11px)',
         fontWeight: 700,
-        letterSpacing: '0.1em',
+        letterSpacing: '0.06em',
         boxShadow: '0 4px 16px rgba(199, 255, 50, 0.4)',
         display: 'flex',
         alignItems: 'center',
-        gap: '12px',
+        gap: '8px',
+        maxWidth: '92vw',
+        boxSizing: 'border-box',
       }}
     >
-      <span>[ ASCII PROTOCOL ACTIVE // 00{secondsRemaining}S // ESC TO EXIT ]</span>
+      <span>[ ASCII ACTIVE // 00{secondsRemaining}S // ESC TO EXIT ]</span>
       <button
         onClick={() => {
           setAsciiActive(false);

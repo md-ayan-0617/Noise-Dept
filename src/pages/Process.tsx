@@ -19,7 +19,7 @@ export const Process: React.FC = () => {
       className="theme-light"
     >
       {/* Process Hero */}
-      <section style={{ padding: '60px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x)', maxWidth: '1600px', margin: '0 auto' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // WORKING PROCESS
         </div>
@@ -27,7 +27,7 @@ export const Process: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(44px, 8.5vw, 135px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.9,
             textTransform: 'uppercase',
@@ -40,14 +40,14 @@ export const Process: React.FC = () => {
           PRODUCT.
         </h1>
 
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(18px, 1.8vw, 24px)', maxWidth: '780px', marginTop: '36px', lineHeight: 1.5, color: '#333' }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(17px, 1.8vw, 24px)', maxWidth: '780px', marginTop: 'clamp(20px, 3vw, 36px)', lineHeight: 1.5, color: '#333' }}>
           Real creative work does not happen in a sterile vacuum. It begins with fragmented post-its, imperfect sketches, and raw debates before snapping into a disciplined technical architecture.
         </p>
       </section>
 
       {/* 8-Step Interactive Vertical Timeline */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 100px 32px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 8vw, 100px) var(--pad-section-x)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(20px, 3vw, 32px)' }}>
           {processStepsData.map((step, idx) => {
             const isCurrent = activeStepIdx === idx;
 
@@ -58,8 +58,8 @@ export const Process: React.FC = () => {
                 style={{
                   border: '2px solid #111',
                   backgroundColor: isCurrent ? '#fff' : 'rgba(255,255,255,0.4)',
-                  padding: '36px',
-                  boxShadow: isCurrent ? '12px 12px 0px #EC3D31' : '6px 6px 0px #111',
+                  padding: 'clamp(20px, 3.5vw, 36px)',
+                  boxShadow: isCurrent ? 'clamp(6px, 1.2vw, 12px) clamp(6px, 1.2vw, 12px) 0px #EC3D31' : 'clamp(3px, 0.8vw, 6px) clamp(3px, 0.8vw, 6px) 0px #111',
                   transition: 'all 0.25s ease',
                   cursor: 'pointer',
                 }}
@@ -68,8 +68,8 @@ export const Process: React.FC = () => {
                 <div
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: 'minmax(60px, 90px) minmax(280px, 1fr) minmax(320px, 1.2fr)',
-                    gap: '32px',
+                    gridTemplateColumns: 'minmax(48px, 90px) minmax(260px, 1fr) minmax(280px, 1.2fr)',
+                    gap: 'clamp(16px, 2.5vw, 32px)',
                     alignItems: 'center',
                   }}
                   className="process-card-grid"
@@ -78,7 +78,7 @@ export const Process: React.FC = () => {
                   <div
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: 'clamp(32px, 4vw, 54px)',
+                      fontSize: 'clamp(28px, 4vw, 54px)',
                       fontWeight: 900,
                       color: isCurrent ? '#EC3D31' : '#777',
                     }}
@@ -91,7 +91,7 @@ export const Process: React.FC = () => {
                     <h2
                       style={{
                         fontFamily: 'var(--font-display)',
-                        fontSize: 'clamp(32px, 4vw, 64px)',
+                        fontSize: 'clamp(26px, 3.5vw, 64px)',
                         fontWeight: 900,
                         textTransform: 'uppercase',
                         margin: 0,
@@ -104,7 +104,7 @@ export const Process: React.FC = () => {
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#EC3D31', fontWeight: 700, marginTop: '8px' }}>
                       {step.tagline}
                     </div>
-                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '17px', color: '#333', marginTop: '12px', lineHeight: 1.5 }}>
+                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#333', marginTop: '12px', lineHeight: 1.5 }}>
                       {step.description}
                     </p>
 
@@ -116,7 +116,7 @@ export const Process: React.FC = () => {
                   {/* Human Photograph with Noise & Crop */}
                   <div
                     style={{
-                      height: '280px',
+                      height: 'clamp(200px, 32vw, 280px)',
                       border: '1px solid #111',
                       overflow: 'hidden',
                       position: 'relative',
@@ -154,12 +154,12 @@ export const Process: React.FC = () => {
       </section>
 
       {/* Illustrative Schedule Timeline Table */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 120px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // ILLUSTRATIVE ENGAGEMENT TIMELINE
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 68px)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 32px 0' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--type-section)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 clamp(20px, 3vw, 32px) 0' }}>
           TYPICAL 9-WEEK CADENCE
         </h2>
 
@@ -170,7 +170,7 @@ export const Process: React.FC = () => {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'minmax(120px, 180px) minmax(160px, 240px) 1fr',
-                padding: '20px 24px',
+                padding: 'clamp(14px, 2vw, 20px) clamp(14px, 2.5vw, 24px)',
                 borderBottom: idx === processTimeline.length - 1 ? 'none' : '1px solid rgba(17,17,17,0.12)',
                 alignItems: 'center',
                 fontFamily: 'var(--font-mono)',
@@ -210,7 +210,7 @@ export const Process: React.FC = () => {
           }
           .timeline-row {
             grid-template-columns: 1fr !important;
-            gap: 6px !important;
+            gap: 8px !important;
           }
         }
       `}</style>

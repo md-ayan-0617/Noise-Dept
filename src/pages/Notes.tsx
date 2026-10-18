@@ -15,7 +15,7 @@ export const Notes: React.FC = () => {
   return (
     <div style={{ backgroundColor: '#0B0B0B', color: '#E8E6DF', minHeight: '100vh', paddingTop: '110px' }}>
       {/* Notes Hero Header */}
-      <section style={{ padding: '60px 32px 40px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(24px, 4vw, 40px) var(--pad-section-x)', maxWidth: '1600px', margin: '0 auto' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // DISPATCHES & WORKING PAPERS
         </div>
@@ -23,7 +23,7 @@ export const Notes: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(52px, 11vw, 175px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.88,
             textTransform: 'uppercase',
@@ -45,11 +45,11 @@ export const Notes: React.FC = () => {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '16px',
+            gap: 'clamp(10px, 2vw, 16px)',
             borderTop: '1px solid rgba(232, 230, 223, 0.15)',
             borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
-            padding: '18px 0',
-            marginTop: '48px',
+            padding: '16px 0',
+            marginTop: 'clamp(32px, 4vw, 48px)',
             fontFamily: 'var(--font-mono)',
             fontSize: '12px',
           }}
@@ -69,7 +69,7 @@ export const Notes: React.FC = () => {
                 cursor: 'pointer',
                 fontWeight: activeCategory === cat ? 700 : 400,
                 letterSpacing: '0.08em',
-                padding: 0,
+                padding: '4px 0',
               }}
             >
               {cat}
@@ -79,11 +79,11 @@ export const Notes: React.FC = () => {
       </section>
 
       {/* Text-Driven Articles List */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 120px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)' }}>
         {filteredNotes.length === 0 ? (
           <div
             style={{
-              padding: '80px 24px',
+              padding: 'clamp(48px, 6vw, 80px) 24px',
               border: '1px dashed rgba(232, 230, 223, 0.25)',
               textAlign: 'center',
               backgroundColor: '#121212',
@@ -93,7 +93,7 @@ export const Notes: React.FC = () => {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', letterSpacing: '0.15em', marginBottom: '16px' }}>
               // 00 DISPATCHES FOR [{activeCategory}]
             </div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 54px)', fontWeight: 800, textTransform: 'uppercase', marginBottom: '24px' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 54px)', fontWeight: 800, textTransform: 'uppercase', marginBottom: '24px' }}>
               NO ARTICLES PUBLISHED UNDER THIS FILTER YET
             </div>
             <button
@@ -114,7 +114,7 @@ export const Notes: React.FC = () => {
                 textDecoration: 'none',
                 color: 'inherit',
                 borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
-                padding: '40px 0',
+                padding: 'clamp(24px, 3.5vw, 40px) 0',
                 transition: 'padding 0.2s ease',
               }}
               onMouseEnter={() => {
@@ -129,21 +129,21 @@ export const Notes: React.FC = () => {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'minmax(40px, 60px) 2fr minmax(120px, 160px) minmax(80px, 100px)',
+                  gridTemplateColumns: 'minmax(32px, 50px) 2fr minmax(110px, 150px) minmax(70px, 90px)',
                   alignItems: 'baseline',
-                  gap: '24px',
+                  gap: 'clamp(14px, 2vw, 24px)',
                 }}
                 className="notes-row"
               >
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#777' }}>
+                <span className="notes-num" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#777' }}>
                   {note.number}
                 </span>
 
-                <div>
+                <div className="notes-main">
                   <h2
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(28px, 4.5vw, 64px)',
+                      fontSize: 'clamp(22px, 3.5vw, 48px)',
                       fontWeight: 800,
                       lineHeight: 1.05,
                       textTransform: 'uppercase',
@@ -153,17 +153,17 @@ export const Notes: React.FC = () => {
                   >
                     {note.title}
                   </h2>
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#888', marginTop: '12px', lineHeight: 1.45 }}>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: '#888', marginTop: '10px', lineHeight: 1.45 }}>
                     {note.excerpt}
                   </p>
                 </div>
 
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32' }}>
+                <div className="notes-cat" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32' }}>
                   [{note.category}] <br />
                   <span style={{ color: '#666' }}>{note.date}</span>
                 </div>
 
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#aaa', textAlign: 'right' }}>
+                <div className="notes-time" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#aaa', textAlign: 'right' }}>
                   {note.readTime}
                 </div>
               </div>
@@ -175,8 +175,25 @@ export const Notes: React.FC = () => {
       <style>{`
         @media (max-width: 860px) {
           .notes-row {
-            grid-template-columns: 36px 1fr !important;
-            gap: 12px !important;
+            grid-template-columns: 32px 1fr !important;
+            gap: 8px 12px !important;
+          }
+          .notes-num {
+            grid-column: 1 !important;
+            grid-row: 1 !important;
+          }
+          .notes-main {
+            grid-column: 2 !important;
+            grid-row: 1 !important;
+          }
+          .notes-cat {
+            grid-column: 2 !important;
+            grid-row: 2 !important;
+          }
+          .notes-time {
+            grid-column: 2 !important;
+            grid-row: 3 !important;
+            text-align: left !important;
           }
         }
       `}</style>

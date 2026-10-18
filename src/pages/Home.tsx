@@ -115,7 +115,7 @@ export const Home: React.FC = () => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: '100px 32px 32px 32px',
+          padding: 'var(--pad-hero-top) var(--pad-section-x) var(--pad-hero-bottom) var(--pad-section-x)',
           position: 'relative',
           boxSizing: 'border-box',
           overflow: 'hidden',
@@ -125,6 +125,8 @@ export const Home: React.FC = () => {
         <div
           style={{
             display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
             justifyContent: 'space-between',
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
@@ -143,7 +145,7 @@ export const Home: React.FC = () => {
           <div
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(48px, 11vw, 175px)',
+              fontSize: 'clamp(44px, 11vw, 175px)',
               fontWeight: 800,
               lineHeight: 0.88,
               textTransform: 'uppercase',
@@ -179,8 +181,8 @@ export const Home: React.FC = () => {
               {/* Small Portrait Candidate Image Intersecting Typography */}
               <div
                 style={{
-                  width: 'clamp(75px, 14vw, 180px)',
-                  height: 'clamp(100px, 18vw, 230px)',
+                  width: 'clamp(65px, 14vw, 180px)',
+                  height: 'clamp(90px, 18vw, 230px)',
                   border: '2px solid #111111',
                   backgroundColor: '#111',
                   overflow: 'hidden',
@@ -216,12 +218,12 @@ export const Home: React.FC = () => {
             style={{
               marginTop: '36px',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '24px',
               alignItems: 'flex-start',
             }}
           >
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, 1.35vw, 21px)', lineHeight: 1.45, maxWidth: '620px', color: '#222' }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.35vw, 21px)', lineHeight: 1.45, maxWidth: '620px', color: '#222' }}>
               Independent design and development studio building digital systems for brands that would rather be remembered than look familiar.
             </div>
 
@@ -257,7 +259,7 @@ export const Home: React.FC = () => {
       <section
         className="theme-dark"
         style={{
-          padding: '120px 32px 60px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x) clamp(30px, 5vw, 60px) var(--pad-section-x)',
           position: 'relative',
           overflow: 'hidden',
           backgroundColor: '#0B0B0B',
@@ -270,6 +272,8 @@ export const Home: React.FC = () => {
             position: 'absolute',
             top: '20px',
             left: '-10%',
+            maxWidth: '100vw',
+            overflow: 'hidden',
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(80px, 20vw, 320px)',
             fontWeight: 900,
@@ -338,7 +342,7 @@ export const Home: React.FC = () => {
               textDecoration: 'none',
               color: 'inherit',
               borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
-              padding: '36px 32px',
+              padding: 'clamp(20px, 4vw, 36px) var(--pad-section-x)',
               transition: 'background-color 0.2s ease, padding 0.2s ease',
             }}
             onMouseEnter={() => {
@@ -361,15 +365,15 @@ export const Home: React.FC = () => {
               }}
               className="project-row"
             >
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#777' }}>
+              <span className="project-index" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#777' }}>
                 {project.index}
               </span>
 
-              <div>
+              <div className="project-main">
                 <div
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(30px, 5.5vw, 80px)',
+                    fontSize: 'clamp(28px, 5.5vw, 80px)',
                     fontWeight: 800,
                     lineHeight: 1,
                     textTransform: 'uppercase',
@@ -385,11 +389,11 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#aaa', textTransform: 'uppercase' }}>
+              <div className="project-cat" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#aaa', textTransform: 'uppercase' }}>
                 {project.category}
               </div>
 
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#777', textAlign: 'right' }}>
+              <div className="project-year" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#777', textAlign: 'right' }}>
                 {project.year}
               </div>
             </div>
@@ -405,7 +409,7 @@ export const Home: React.FC = () => {
         style={{
           backgroundColor: '#EC3D31',
           color: '#0B0B0B',
-          padding: '120px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -415,13 +419,13 @@ export const Home: React.FC = () => {
             FEATURE RELEASE // 02
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(300px, 1fr)', gap: '48px', alignItems: 'center' }}>
+          <div className="feature-project-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(300px, 1fr)', gap: 'clamp(32px, 5vw, 48px)', alignItems: 'center' }}>
             {/* Title & Narrative */}
             <div>
               <h2
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(50px, 9.5vw, 140px)',
+                  fontSize: 'clamp(44px, 9.5vw, 140px)',
                   fontWeight: 900,
                   lineHeight: 0.85,
                   margin: 0,
@@ -433,11 +437,11 @@ export const Home: React.FC = () => {
                 YOUTH
               </h2>
 
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '20px', lineHeight: 1.5, marginTop: '28px', maxWidth: '520px', fontWeight: 500 }}>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, 1.8vw, 20px)', lineHeight: 1.5, marginTop: '24px', maxWidth: '520px', fontWeight: 500 }}>
                 A hardware-inspired subcultural streaming and cassette archive platform engineered for Berlin's industrial techno scene.
               </p>
 
-              <div style={{ marginTop: '36px' }}>
+              <div style={{ marginTop: '32px' }}>
                 <Link
                   to="/work/static-youth"
                   className="btn-raw-solid"
@@ -469,6 +473,7 @@ export const Home: React.FC = () => {
                 fallbackSubtitle="CASSETTE_STREAM_UI"
                 accentColor="#EC3D31"
                 grayscaleByDefault={false}
+                className="feature-project-noise-img"
                 style={{ width: '100%', height: '480px' }}
               />
 
@@ -498,7 +503,7 @@ export const Home: React.FC = () => {
       <section
         className="theme-light"
         style={{
-          padding: '120px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           borderBottom: '1px solid rgba(17, 17, 17, 0.12)',
         }}
       >
@@ -531,7 +536,7 @@ export const Home: React.FC = () => {
                     }}
                     onMouseEnter={() => setCursor('default')}
                   >
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '24px' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px' }}>
                       <span
                         style={{
                           fontFamily: 'var(--font-mono)',
@@ -574,6 +579,7 @@ export const Home: React.FC = () => {
 
             {/* Dynamic Step Human Image */}
             <div
+              className="process-teaser-img-box"
               style={{
                 border: '2px solid #111',
                 height: '460px',
@@ -604,7 +610,7 @@ export const Home: React.FC = () => {
         style={{
           backgroundColor: '#0B0B0B',
           color: '#E8E6DF',
-          padding: '140px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
         }}
       >
@@ -616,7 +622,7 @@ export const Home: React.FC = () => {
           <div
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(40px, 7.5vw, 120px)',
+              fontSize: 'clamp(32px, 7vw, 120px)',
               fontWeight: 900,
               lineHeight: 0.9,
               textTransform: 'uppercase',
@@ -633,9 +639,9 @@ export const Home: React.FC = () => {
           <p
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(16px, 1.8vw, 26px)',
+              fontSize: 'clamp(15px, 1.8vw, 26px)',
               color: '#888',
-              marginTop: '36px',
+              marginTop: '32px',
               maxWidth: '760px',
               lineHeight: 1.5,
             }}
@@ -651,12 +657,12 @@ export const Home: React.FC = () => {
       <section
         className="theme-light"
         style={{
-          padding: '120px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           borderBottom: '1px solid rgba(17, 17, 17, 0.12)',
         }}
       >
         <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '48px', borderBottom: '1px solid rgba(17, 17, 17, 0.15)', paddingBottom: '24px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '48px', borderBottom: '1px solid rgba(17, 17, 17, 0.15)', paddingBottom: '24px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--type-section)', fontWeight: 900, margin: 0, lineHeight: 0.9 }}>
               WHAT WE <br />ACTUALLY DO.
             </h2>
@@ -683,7 +689,7 @@ export const Home: React.FC = () => {
                   onMouseLeave={() => setCursor('default')}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '24px' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap' }}>
                       <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#777' }}>
                         {service.number}
                       </span>
@@ -702,7 +708,7 @@ export const Home: React.FC = () => {
                       </span>
                     </div>
 
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '18px', fontWeight: 700 }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '18px', fontWeight: 700, flexShrink: 0, marginLeft: '12px' }}>
                       {isOpen ? '[ - ]' : '[ + ]'}
                     </span>
                   </div>
@@ -712,16 +718,16 @@ export const Home: React.FC = () => {
                       style={{
                         marginTop: '24px',
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
                         gap: '32px',
-                        paddingLeft: '48px',
+                        paddingLeft: 'clamp(0px, 3vw, 48px)',
                       }}
                     >
                       <div>
                         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#777', marginBottom: '8px' }}>
                           // SUMMARY
                         </div>
-                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '17px', color: '#222', lineHeight: 1.45 }}>
+                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#222', lineHeight: 1.45 }}>
                           {service.summary}
                         </p>
                       </div>
@@ -765,14 +771,14 @@ export const Home: React.FC = () => {
         style={{
           backgroundColor: '#0B0B0B',
           color: '#E8E6DF',
-          padding: '100px 32px',
+          padding: 'clamp(60px, 8vw, 100px) var(--pad-section-x)',
           position: 'relative',
           overflow: 'hidden',
           borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
         }}
       >
         <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', letterSpacing: '0.15em' }}>
               03 // LAB_001: KINETIC SCULPTURE
             </span>
@@ -811,7 +817,7 @@ export const Home: React.FC = () => {
             <WebGLSculpture />
           </React.Suspense>
 
-          <div style={{ marginTop: '24px', textAlign: 'right' }}>
+          <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
             <Link to="/lab" className="btn-raw" onMouseEnter={() => setCursor('break')} onMouseLeave={() => setCursor('default')}>
               OPEN FULL EXPERIMENTAL LAB (6 EXPERIMENTS) →
             </Link>
@@ -825,7 +831,7 @@ export const Home: React.FC = () => {
       <section
         className="theme-light"
         style={{
-          padding: '140px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           borderBottom: '1px solid rgba(17, 17, 17, 0.12)',
         }}
       >
@@ -837,7 +843,7 @@ export const Home: React.FC = () => {
           <blockquote
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(30px, 4.5vw, 70px)',
+              fontSize: 'clamp(24px, 4vw, 70px)',
               fontWeight: 800,
               lineHeight: 1.05,
               textTransform: 'uppercase',
@@ -853,7 +859,8 @@ export const Home: React.FC = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '20px',
-              marginTop: '48px',
+              marginTop: '40px',
+              flexWrap: 'wrap',
             }}
           >
             <div
@@ -862,6 +869,7 @@ export const Home: React.FC = () => {
                 height: '56px',
                 border: '1px solid #111',
                 overflow: 'hidden',
+                flexShrink: 0,
               }}
             >
               <NoiseImage
@@ -893,7 +901,7 @@ export const Home: React.FC = () => {
         style={{
           backgroundColor: '#0B0B0B',
           color: '#E8E6DF',
-          padding: '120px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
         }}
       >
@@ -903,13 +911,14 @@ export const Home: React.FC = () => {
             margin: '0 auto',
             display: 'grid',
             gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 1fr)',
-            gap: '64px',
+            gap: 'clamp(32px, 6vw, 64px)',
             alignItems: 'center',
           }}
           className="about-teaser-grid"
         >
           {/* Portrait with Direct-Flash Crop */}
           <div
+            className="about-teaser-img-box"
             style={{
               border: '2px solid rgba(232, 230, 223, 0.2)',
               backgroundColor: '#151515',
@@ -927,6 +936,7 @@ export const Home: React.FC = () => {
               fallbackSubtitle="STUDIO_PROFILE"
               accentColor="#C7FF32"
               grayscaleByDefault={false}
+              className="about-teaser-noise-img"
               style={{ width: '100%', height: '520px' }}
             />
             <div
@@ -954,7 +964,7 @@ export const Home: React.FC = () => {
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(36px, 6vw, 86px)',
+                fontSize: 'clamp(32px, 6vw, 86px)',
                 fontWeight: 900,
                 lineHeight: 0.9,
                 margin: 0,
@@ -966,11 +976,11 @@ export const Home: React.FC = () => {
               BIG OPINIONS.
             </h2>
 
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', lineHeight: 1.55, marginTop: '24px', color: '#aaa' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.8vw, 18px)', lineHeight: 1.55, marginTop: '24px', color: '#aaa' }}>
               We’re intentionally small. The person discussing the project is also involved in designing and building it. No sales teams. No junior team handoff after the proposal.
             </p>
 
-            <div style={{ marginTop: '36px' }}>
+            <div style={{ marginTop: '32px' }}>
               <Link to="/about" className="btn-raw-solid" onMouseEnter={() => setCursor('open')} onMouseLeave={() => setCursor('default')}>
                 READ FULL PROFILE →
               </Link>
@@ -986,7 +996,7 @@ export const Home: React.FC = () => {
         style={{
           backgroundColor: '#C7FF32',
           color: '#0B0B0B',
-          padding: '160px 32px',
+          padding: 'var(--pad-section-y) var(--pad-section-x)',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
@@ -1000,7 +1010,7 @@ export const Home: React.FC = () => {
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(54px, 12vw, 195px)',
+              fontSize: 'clamp(38px, 10.5vw, 195px)',
               fontWeight: 900,
               lineHeight: 0.85,
               textTransform: 'uppercase',
@@ -1022,14 +1032,14 @@ export const Home: React.FC = () => {
             </span>
           </h2>
 
-          <div style={{ marginTop: '56px' }}>
+          <div style={{ marginTop: 'clamp(32px, 6vw, 56px)' }}>
             <Link
               to="/start"
               className="btn-raw-solid"
               style={{
                 backgroundColor: '#0B0B0B',
                 color: '#C7FF32',
-                padding: '20px 48px',
+                padding: 'clamp(14px, 3vw, 20px) clamp(28px, 6vw, 48px)',
                 fontSize: '15px',
                 borderColor: '#0B0B0B',
               }}
@@ -1045,13 +1055,49 @@ export const Home: React.FC = () => {
       {/* Responsive adjustments */}
       <style>{`
         @media (max-width: 860px) {
+          .feature-project-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .feature-project-img {
+            box-shadow: 10px 10px 0px #0B0B0B !important;
+          }
+          .feature-project-noise-img {
+            height: clamp(260px, 60vw, 440px) !important;
+          }
           .project-row {
-            grid-template-columns: 36px 1fr !important;
-            gap: 12px !important;
+            grid-template-columns: 32px 1fr !important;
+            gap: 6px 12px !important;
+            align-items: flex-start !important;
+          }
+          .project-main {
+            grid-column: 2 !important;
+          }
+          .project-cat {
+            grid-column: 2 !important;
+            margin-top: 4px;
+            font-size: 11px !important;
+          }
+          .project-year {
+            grid-column: 2 !important;
+            text-align: left !important;
+            color: #C7FF32 !important;
+            font-weight: 700 !important;
+            margin-top: 2px;
           }
           .process-teaser-grid,
           .about-teaser-grid {
             grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .process-teaser-img-box {
+            height: clamp(240px, 50vw, 420px) !important;
+          }
+          .about-teaser-img-box {
+            box-shadow: 8px 8px 0px #C7FF32 !important;
+          }
+          .about-teaser-noise-img {
+            height: clamp(280px, 60vw, 460px) !important;
           }
         }
       `}</style>

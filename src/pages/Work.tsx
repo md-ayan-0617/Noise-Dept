@@ -39,9 +39,9 @@ export const Work: React.FC = () => {
   });
 
   return (
-    <div style={{ backgroundColor: '#0B0B0B', color: '#E8E6DF', minHeight: '100vh', paddingTop: '100px' }}>
+    <div style={{ backgroundColor: '#0B0B0B', color: '#E8E6DF', minHeight: '100vh', paddingTop: 'var(--pad-hero-top)' }}>
       {/* Work Page Header */}
-      <section style={{ padding: '60px 32px 32px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(30px, 5vw, 60px) var(--pad-section-x) 24px var(--pad-section-x)', maxWidth: '1600px', margin: '0 auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '20px' }}>
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', letterSpacing: '0.15em', marginBottom: '8px' }}>
@@ -50,7 +50,7 @@ export const Work: React.FC = () => {
             <h1
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(50px, 11vw, 160px)',
+                fontSize: 'clamp(44px, 11vw, 160px)',
                 fontWeight: 900,
                 lineHeight: 0.85,
                 margin: 0,
@@ -62,7 +62,7 @@ export const Work: React.FC = () => {
             </h1>
           </div>
 
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#888', textAlign: 'right' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#888' }}>
             <span>PROJECT INDEX: 001—018</span> <br />
             <span>COMMERCE, CULTURE, PROTOTYPES</span>
           </div>
@@ -75,17 +75,17 @@ export const Work: React.FC = () => {
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '24px',
+            gap: '20px',
             borderTop: '1px solid rgba(232, 230, 223, 0.15)',
             borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
-            padding: '20px 0',
-            marginTop: '48px',
+            padding: '16px 0',
+            marginTop: '36px',
             fontFamily: 'var(--font-mono)',
             fontSize: '12px',
           }}
         >
           {/* Categories Filter */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
             {(['ALL', 'COMMERCE', 'CULTURE', 'MUSIC', 'FASHION', 'PRODUCT', 'EXPERIMENT'] as CategoryFilter[]).map((cat) => (
               <button
                 key={cat}
@@ -101,7 +101,7 @@ export const Work: React.FC = () => {
                   cursor: 'pointer',
                   fontWeight: activeFilter === cat ? 700 : 400,
                   letterSpacing: '0.08em',
-                  padding: 0,
+                  padding: '4px 0',
                 }}
                 aria-label={`Filter by ${cat}`}
               >
@@ -111,7 +111,7 @@ export const Work: React.FC = () => {
           </div>
 
           {/* View Modes Selector (Chaos disabled on mobile per spec) */}
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <span style={{ color: '#666' }}>VIEW:</span>
             {(['INDEX', 'GRID', ...(isMobile ? [] : ['CHAOS'])] as ViewMode[]).map((mode) => (
               <button
@@ -140,11 +140,11 @@ export const Work: React.FC = () => {
 
       {/* EMPTY STATE */}
       {filteredProjects.length === 0 && (
-        <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '120px 32px', textAlign: 'center' }}>
+        <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'var(--pad-section-y) var(--pad-section-x)', textAlign: 'center' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', letterSpacing: '0.15em', marginBottom: '16px' }}>
             // 00 MATCHES FOR [{activeFilter}]
           </div>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: 800 }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 5vw, 64px)', fontWeight: 800 }}>
             NO ARCHIVES ALLOCATED.
           </div>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#888', marginTop: '12px', maxWidth: '440px', margin: '12px auto 32px auto' }}>
@@ -164,7 +164,7 @@ export const Work: React.FC = () => {
           MODE 1: INDEX MODE (Textual Rows)
           ===================================================== */}
       {viewMode === 'INDEX' && filteredProjects.length > 0 && (
-        <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 100px 32px' }}>
+        <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 10vw, 100px) var(--pad-section-x)' }}>
           {filteredProjects.map((project) => (
             <Link
               key={project.slug}
@@ -174,8 +174,8 @@ export const Work: React.FC = () => {
                 textDecoration: 'none',
                 color: 'inherit',
                 borderBottom: '1px solid rgba(232, 230, 223, 0.12)',
-                padding: '40px 0',
-                transition: 'padding 0.2s ease',
+                padding: 'clamp(24px, 4vw, 40px) 0',
+                transition: 'background-color 0.2s ease, padding 0.2s ease',
               }}
               onMouseEnter={() => {
                 setCursor('open');
@@ -195,15 +195,15 @@ export const Work: React.FC = () => {
                 }}
                 className="index-row"
               >
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#777' }}>
+                <span className="index-col-num" style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#777' }}>
                   {project.index}
                 </span>
 
-                <div>
+                <div className="index-col-main">
                   <div
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(32px, 6vw, 86px)',
+                      fontSize: 'clamp(28px, 6vw, 86px)',
                       fontWeight: 800,
                       lineHeight: 1,
                       textTransform: 'uppercase',
@@ -217,12 +217,12 @@ export const Work: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#aaa', textTransform: 'uppercase' }}>
+                <div className="index-col-cat" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#aaa', textTransform: 'uppercase' }}>
                   {project.category} <br />
                   <span style={{ color: '#666' }}>{project.client}</span>
                 </div>
 
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#C7FF32', textAlign: 'right', fontWeight: 700 }}>
+                <div className="index-col-year" style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#C7FF32', textAlign: 'right', fontWeight: 700 }}>
                   {project.year} ↗
                 </div>
               </div>
@@ -239,10 +239,10 @@ export const Work: React.FC = () => {
           style={{
             maxWidth: '1600px',
             margin: '0 auto',
-            padding: '40px 32px 120px 32px',
+            padding: '20px var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
-            gap: '40px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
+            gap: 'clamp(24px, 4vw, 40px)',
           }}
           className="grid-mode-container"
         >
@@ -429,9 +429,9 @@ export const Work: React.FC = () => {
       )}
 
       {/* Visual Archive Preview Section */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '80px 32px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid rgba(232, 230, 223, 0.15)', paddingBottom: '20px', marginBottom: '32px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', fontWeight: 800, margin: 0 }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'clamp(40px, 8vw, 80px) var(--pad-section-x)' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid rgba(232, 230, 223, 0.15)', paddingBottom: '20px', marginBottom: '32px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: 800, margin: 0 }}>
             EARLIER ARTIFACTS
           </h2>
           <Link to="/archive" className="btn-raw" onMouseEnter={() => setCursor('open')} onMouseLeave={() => setCursor('default')}>
@@ -439,7 +439,7 @@ export const Work: React.FC = () => {
           </Link>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', gap: '20px' }}>
           {archiveItems.map((arch) => (
             <div
               key={arch.id}
@@ -467,11 +467,26 @@ export const Work: React.FC = () => {
       <style>{`
         @media (max-width: 860px) {
           .index-row {
-            grid-template-columns: 36px 1fr !important;
-            gap: 12px !important;
+            grid-template-columns: 32px 1fr !important;
+            gap: 6px 12px !important;
+            align-items: flex-start !important;
+          }
+          .index-col-main {
+            grid-column: 2 !important;
+          }
+          .index-col-cat {
+            grid-column: 2 !important;
+            margin-top: 4px;
+            font-size: 11px !important;
+          }
+          .index-col-year {
+            grid-column: 2 !important;
+            text-align: left !important;
+            margin-top: 2px;
           }
           .grid-mode-container {
             grid-template-columns: 1fr !important;
+            gap: 24px !important;
           }
         }
       `}</style>

@@ -19,7 +19,7 @@ export const Services: React.FC = () => {
       }}
     >
       {/* Services Hero Header */}
-      <section style={{ padding: '60px 32px 40px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(30px, 5vw, 60px) var(--pad-section-x) 32px var(--pad-section-x)', maxWidth: '1600px', margin: '0 auto' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#3155FF', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // TOOLBOX & UTILITY
         </div>
@@ -27,7 +27,7 @@ export const Services: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(54px, 11vw, 175px)',
+            fontSize: 'clamp(44px, 10vw, 175px)',
             fontWeight: 900,
             lineHeight: 0.88,
             textTransform: 'uppercase',
@@ -40,7 +40,7 @@ export const Services: React.FC = () => {
           USEFUL FOR.
         </h1>
 
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(18px, 1.8vw, 24px)', maxWidth: '720px', marginTop: '36px', lineHeight: 1.5, color: '#333' }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, 1.8vw, 24px)', maxWidth: '720px', marginTop: '28px', lineHeight: 1.5, color: '#333' }}>
           We don't hand the design off to somebody else to figure out. We design directly in code and think through every interaction from discovery through deployment.
         </p>
       </section>
@@ -68,7 +68,7 @@ export const Services: React.FC = () => {
               onMouseLeave={() => setCursor('default')}
               style={{
                 borderBottom: '1px solid rgba(17, 17, 17, 0.15)',
-                padding: '48px 32px',
+                padding: 'clamp(28px, 4vw, 48px) var(--pad-section-x)',
                 backgroundColor: isSelected ? 'rgba(49, 85, 255, 0.05)' : 'transparent',
                 transition: 'background-color 0.2s ease',
                 cursor: 'pointer',
@@ -164,22 +164,22 @@ export const Services: React.FC = () => {
       </section>
 
       {/* GOOD FIT / BAD FIT Matrix */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '120px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'var(--pad-section-y) var(--pad-section-x)' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#3155FF', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // QUALIFICATION CHECK
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 6vw, 84px)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 48px 0' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 5.5vw, 84px)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 clamp(28px, 5vw, 48px) 0' }}>
           ARE WE A GOOD FIT?
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 4vw, 48px)' }}>
           {/* GOOD FIT */}
-          <div style={{ border: '2px solid #111', padding: '40px', backgroundColor: '#fff', boxShadow: '8px 8px 0px #3155FF' }}>
+          <div style={{ border: '2px solid #111', padding: 'clamp(24px, 4vw, 40px)', backgroundColor: '#fff', boxShadow: '8px 8px 0px #3155FF' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700, color: '#3155FF', letterSpacing: '0.1em', marginBottom: '20px' }}>
               ✓ GOOD FIT IF:
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px', fontFamily: 'var(--font-body)', fontSize: '18px', color: '#222', lineHeight: 1.45 }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '14px', fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.4vw, 18px)', color: '#222', lineHeight: 1.45 }}>
               {fitCriteria.goodFit.map((item, idx) => (
                 <li key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'baseline' }}>
                   <span style={{ color: '#3155FF', fontWeight: 700 }}>•</span>
@@ -190,11 +190,11 @@ export const Services: React.FC = () => {
           </div>
 
           {/* BAD FIT */}
-          <div style={{ border: '2px solid #111', padding: '40px', backgroundColor: '#fff', boxShadow: '8px 8px 0px #EC3D31' }}>
+          <div style={{ border: '2px solid #111', padding: 'clamp(24px, 4vw, 40px)', backgroundColor: '#fff', boxShadow: '8px 8px 0px #EC3D31' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700, color: '#EC3D31', letterSpacing: '0.1em', marginBottom: '20px' }}>
               ✕ BAD FIT IF:
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px', fontFamily: 'var(--font-body)', fontSize: '18px', color: '#222', lineHeight: 1.45 }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '14px', fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.4vw, 18px)', color: '#222', lineHeight: 1.45 }}>
               {fitCriteria.badFit.map((item, idx) => (
                 <li key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'baseline' }}>
                   <span style={{ color: '#EC3D31', fontWeight: 700 }}>•</span>
@@ -206,7 +206,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* CTA Banner */}
-        <div style={{ marginTop: '80px', textAlign: 'center' }}>
+        <div style={{ marginTop: 'clamp(40px, 6vw, 80px)', textAlign: 'center' }}>
           <Link to="/start" className="btn-raw-solid" style={{ backgroundColor: '#111', color: '#E9E7E0' }} onMouseEnter={() => setCursor('start')} onMouseLeave={() => setCursor('default')}>
             LET'S DISCUSS YOUR PROJECT ↗
           </Link>

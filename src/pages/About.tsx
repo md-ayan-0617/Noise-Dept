@@ -13,7 +13,7 @@ export const About: React.FC = () => {
       {/* =====================================================
           ABOUT HERO (No Account Managers)
           ===================================================== */}
-      <section style={{ padding: '60px 32px 80px 32px', maxWidth: '1600px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(40px, 6vw, 80px) var(--pad-section-x)', maxWidth: '1600px', margin: '0 auto' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // STUDIO PROFILE & PHILOSOPHY
         </div>
@@ -21,7 +21,7 @@ export const About: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(52px, 11vw, 175px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.88,
             textTransform: 'uppercase',
@@ -38,15 +38,15 @@ export const About: React.FC = () => {
       {/* =====================================================
           DIRECT-FLASH PORTRAIT & HONEST BIO
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 100px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 8vw, 100px) var(--pad-section-x)' }}>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(320px, 1fr) minmax(320px, 1.4fr)',
-            gap: '64px',
+            gridTemplateColumns: 'minmax(280px, 1fr) minmax(280px, 1.4fr)',
+            gap: 'clamp(32px, 4vw, 64px)',
             alignItems: 'flex-start',
             borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
-            paddingBottom: '80px',
+            paddingBottom: 'clamp(40px, 6vw, 80px)',
           }}
           className="about-bio-grid"
         >
@@ -55,10 +55,11 @@ export const About: React.FC = () => {
             style={{
               border: '2px solid rgba(232, 230, 223, 0.25)',
               backgroundColor: '#151515',
-              boxShadow: '16px 16px 0px #EC3D31',
+              boxShadow: 'clamp(8px, 1.5vw, 16px) clamp(8px, 1.5vw, 16px) 0px #EC3D31',
               position: 'relative',
               overflow: 'hidden',
-              height: '560px',
+              height: 'clamp(300px, 50vw, 560px)',
+              maxWidth: '100%',
             }}
             onMouseEnter={() => setCursor('view')}
             onMouseLeave={() => setCursor('default')}
@@ -91,13 +92,13 @@ export const About: React.FC = () => {
 
           {/* Conversational Bio Copy */}
           <div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {aboutData.studioBio.map((paragraph, i) => (
                 <p
                   key={i}
                   style={{
                     fontFamily: 'var(--font-body)',
-                    fontSize: 'clamp(18px, 1.8vw, 24px)',
+                    fontSize: 'clamp(16px, 1.6vw, 22px)',
                     lineHeight: 1.55,
                     color: i === 0 ? '#E8E6DF' : '#aaa',
                   }}
@@ -107,7 +108,7 @@ export const About: React.FC = () => {
               ))}
             </div>
 
-            <div style={{ marginTop: '40px' }}>
+            <div style={{ marginTop: 'clamp(24px, 3vw, 40px)' }}>
               <Link to="/start" className="btn-raw-solid" onMouseEnter={() => setCursor('start')} onMouseLeave={() => setCursor('default')}>
                 START A DIRECT CONVERSATION ↗
               </Link>
@@ -119,12 +120,12 @@ export const About: React.FC = () => {
       {/* =====================================================
           5 STUDIO VALUES
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 100px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 8vw, 100px) var(--pad-section-x)' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#C7FF32', letterSpacing: '0.15em', marginBottom: '24px' }}>
           // OPERATING PRINCIPLES
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 6vw, 84px)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 48px 0' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--type-section)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 clamp(28px, 4vw, 48px) 0' }}>
           VALUES WE ACTUALLY KEEP.
         </h2>
 
@@ -134,11 +135,11 @@ export const About: React.FC = () => {
               key={val.number}
               style={{
                 border: '1px solid rgba(232, 230, 223, 0.15)',
-                padding: '32px',
+                padding: 'clamp(20px, 3vw, 32px)',
                 backgroundColor: '#121212',
                 display: 'grid',
-                gridTemplateColumns: 'minmax(40px, 60px) minmax(280px, 1.2fr) minmax(300px, 2fr)',
-                gap: '24px',
+                gridTemplateColumns: 'minmax(40px, 60px) minmax(240px, 1.2fr) minmax(260px, 2fr)',
+                gap: 'clamp(16px, 2vw, 24px)',
                 alignItems: 'baseline',
               }}
               className="values-grid-row"
@@ -146,10 +147,10 @@ export const About: React.FC = () => {
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#EC3D31', fontWeight: 700 }}>
                 {val.number}
               </span>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 42px)', fontWeight: 800, textTransform: 'uppercase', margin: 0 }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.8vw, 38px)', fontWeight: 800, textTransform: 'uppercase', margin: 0 }}>
                 {val.title}
               </h3>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '17px', color: '#aaa', margin: 0, lineHeight: 1.5 }}>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#aaa', margin: 0, lineHeight: 1.5 }}>
                 {val.description}
               </p>
             </div>
@@ -160,16 +161,16 @@ export const About: React.FC = () => {
       {/* =====================================================
           PERSONAL INTEREST WALL (Visual Fragments)
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 100px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 8vw, 100px) var(--pad-section-x)' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#777', letterSpacing: '0.15em', marginBottom: '16px' }}>
           // PHYSICAL ARTIFACTS & INFLUENCES
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 68px)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 40px 0' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--type-section)', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 clamp(24px, 3vw, 40px) 0' }}>
           THE DESK ARCHIVE.
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 240px), 1fr))', gap: 'clamp(16px, 2vw, 24px)' }}>
           {aboutData.personalInterests.map((item, idx) => (
             <div
               key={idx}
@@ -207,15 +208,15 @@ export const About: React.FC = () => {
       {/* =====================================================
           STUDIO TOOLBOX (Design, Dev, Infra)
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 120px 32px' }}>
-        <div style={{ borderTop: '1px solid rgba(232, 230, 223, 0.15)', paddingTop: '48px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)' }}>
+        <div style={{ borderTop: '1px solid rgba(232, 230, 223, 0.15)', paddingTop: 'clamp(32px, 4vw, 48px)' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#777', letterSpacing: '0.15em', marginBottom: '24px' }}>
             // TECHNICAL TOOLBOX
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 'clamp(24px, 3vw, 40px)' }}>
             <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, color: '#EC3D31', marginBottom: '16px' }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 800, color: '#EC3D31', marginBottom: '16px' }}>
                 DESIGN
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -228,7 +229,7 @@ export const About: React.FC = () => {
             </div>
 
             <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, color: '#C7FF32', marginBottom: '16px' }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 800, color: '#C7FF32', marginBottom: '16px' }}>
                 DEVELOPMENT
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -241,7 +242,7 @@ export const About: React.FC = () => {
             </div>
 
             <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, color: '#3155FF', marginBottom: '16px' }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 800, color: '#3155FF', marginBottom: '16px' }}>
                 INFRASTRUCTURE
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -261,7 +262,7 @@ export const About: React.FC = () => {
           .about-bio-grid,
           .values-grid-row {
             grid-template-columns: 1fr !important;
-            gap: 20px !important;
+            gap: 16px !important;
           }
         }
       `}</style>

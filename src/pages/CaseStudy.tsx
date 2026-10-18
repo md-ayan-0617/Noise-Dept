@@ -42,7 +42,7 @@ export const CaseStudy: React.FC = () => {
         style={{
           backgroundColor: project.accentColor,
           color: '#0B0B0B',
-          padding: '120px 32px 70px 32px',
+          padding: 'var(--pad-hero-top) var(--pad-section-x) 40px var(--pad-section-x)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -53,6 +53,7 @@ export const CaseStudy: React.FC = () => {
             style={{
               display: 'flex',
               flexWrap: 'wrap',
+              gap: '12px 24px',
               justifyContent: 'space-between',
               fontFamily: 'var(--font-mono)',
               fontSize: '12px',
@@ -73,19 +74,19 @@ export const CaseStudy: React.FC = () => {
           <h1
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(48px, 11vw, 175px)',
+              fontSize: 'clamp(44px, 10vw, 175px)',
               fontWeight: 900,
               lineHeight: 0.85,
               textTransform: 'uppercase',
               letterSpacing: '-0.03em',
-              margin: '28px 0 40px 0',
+              margin: '20px 0 32px 0',
             }}
           >
             {project.title}
           </h1>
 
           {/* Services tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '48px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '36px' }}>
             {project.services.map((srv, idx) => (
               <span
                 key={idx}
@@ -105,13 +106,14 @@ export const CaseStudy: React.FC = () => {
 
           {/* Hero Visual Capture */}
           <div
+            className="case-hero-cover"
             style={{
               border: '3px solid #0B0B0B',
               backgroundColor: '#111',
               boxShadow: '16px 16px 0px #0B0B0B',
               overflow: 'hidden',
               position: 'relative',
-              height: 'clamp(340px, 46vw, 620px)',
+              height: 'clamp(260px, 46vw, 620px)',
             }}
             onMouseEnter={() => setCursor('view')}
             onMouseLeave={() => setCursor('default')}
@@ -132,15 +134,15 @@ export const CaseStudy: React.FC = () => {
       {/* =====================================================
           CASE INTRO: THE PROBLEM & METRICS (Two-Column)
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '90px 32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'var(--pad-section-y) var(--pad-section-x)' }}>
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(240px, 1fr) minmax(320px, 2fr)',
-            gap: '64px',
+            gap: 'clamp(32px, 5vw, 64px)',
             alignItems: 'flex-start',
             borderBottom: '1px solid rgba(232, 230, 223, 0.15)',
-            paddingBottom: '80px',
+            paddingBottom: 'clamp(40px, 6vw, 80px)',
           }}
           className="case-intro-grid"
         >
@@ -148,21 +150,21 @@ export const CaseStudy: React.FC = () => {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: project.accentColor, letterSpacing: '0.15em', marginBottom: '8px' }}>
               // CONTEXT
             </div>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 56px)', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
               THE PROBLEM.
             </h2>
           </div>
 
           <div>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(18px, 1.8vw, 24px)', lineHeight: 1.5, color: '#E8E6DF' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, 1.8vw, 24px)', lineHeight: 1.5, color: '#E8E6DF' }}>
               {project.challenge}
             </p>
 
-            <div style={{ marginTop: '36px' }}>
+            <div style={{ marginTop: '32px' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: project.accentColor, letterSpacing: '0.15em', marginBottom: '8px' }}>
                 // ARCHITECTURAL SOLUTION
               </div>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', lineHeight: 1.6, color: '#999' }}>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.4vw, 18px)', lineHeight: 1.6, color: '#999' }}>
                 {project.solution}
               </p>
             </div>
@@ -173,9 +175,9 @@ export const CaseStudy: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '32px',
-            paddingTop: '60px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
+            gap: '28px',
+            paddingTop: 'clamp(32px, 5vw, 60px)',
           }}
         >
           {project.metrics.map((m, idx) => (
@@ -333,13 +335,13 @@ export const CaseStudy: React.FC = () => {
       {/* =====================================================
           FULL-BLEED GALLERY & WIREFRAME CROPS
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '100px 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '32px' }}>
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: 'clamp(40px, 8vw, 100px) var(--pad-section-x)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '28px' }}>
           {project.secondaryImages.map((img, i) => (
             <div
               key={i}
               style={{
-                height: i === 0 ? '520px' : '400px',
+                height: i === 0 ? 'clamp(320px, 45vw, 520px)' : 'clamp(260px, 35vw, 400px)',
                 border: '1px solid rgba(232, 230, 223, 0.2)',
                 backgroundColor: '#151515',
                 overflow: 'hidden',
@@ -378,8 +380,8 @@ export const CaseStudy: React.FC = () => {
       {/* =====================================================
           CODE MOMENT & INTERACTION DEMO
           ===================================================== */}
-      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 32px 100px 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 0.8fr)', gap: '48px' }} className="case-code-grid">
+      <section style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 var(--pad-section-x) clamp(50px, 8vw, 100px) var(--pad-section-x)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 0.8fr)', gap: '40px' }} className="case-code-grid">
           {/* Real front-end snippet */}
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: project.accentColor, letterSpacing: '0.15em', marginBottom: '12px' }}>
@@ -389,9 +391,9 @@ export const CaseStudy: React.FC = () => {
               style={{
                 backgroundColor: '#111',
                 border: '1px solid rgba(232, 230, 223, 0.15)',
-                padding: '24px',
+                padding: 'clamp(16px, 3vw, 24px)',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '13px',
+                fontSize: '12px',
                 color: '#C7FF32',
                 overflowX: 'auto',
                 lineHeight: 1.5,
@@ -406,7 +408,7 @@ export const CaseStudy: React.FC = () => {
             style={{
               border: `1px solid ${project.accentColor}`,
               backgroundColor: '#151515',
-              padding: '32px',
+              padding: 'clamp(20px, 4vw, 32px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -416,7 +418,7 @@ export const CaseStudy: React.FC = () => {
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: project.accentColor, letterSpacing: '0.15em', marginBottom: '8px' }}>
                 // HARDWARE EMULATION
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800, margin: 0 }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, margin: 0 }}>
                 DISPATCH RUNTIME
               </h3>
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#888', marginTop: '12px', lineHeight: 1.5 }}>
@@ -470,7 +472,7 @@ export const CaseStudy: React.FC = () => {
           color: '#E8E6DF',
           backgroundColor: '#111',
           borderTop: '2px solid rgba(232, 230, 223, 0.15)',
-          padding: '120px 32px',
+          padding: 'clamp(60px, 10vw, 120px) var(--pad-section-x)',
           textAlign: 'center',
           transition: 'background-color 0.2s ease',
         }}
@@ -483,7 +485,7 @@ export const CaseStudy: React.FC = () => {
         <div
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(44px, 9vw, 140px)',
+            fontSize: 'clamp(36px, 8vw, 140px)',
             fontWeight: 900,
             textTransform: 'uppercase',
             letterSpacing: '-0.02em',
@@ -498,9 +500,13 @@ export const CaseStudy: React.FC = () => {
 
       <style>{`
         @media (max-width: 860px) {
+          .case-hero-cover {
+            box-shadow: 8px 8px 0px #0B0B0B !important;
+          }
           .case-intro-grid,
           .case-code-grid {
             grid-template-columns: 1fr !important;
+            gap: 28px !important;
           }
         }
       `}</style>

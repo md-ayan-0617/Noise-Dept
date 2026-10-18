@@ -70,17 +70,19 @@ export const Start: React.FC = () => {
         paddingTop: '110px',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 32px 120px 32px' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(36px, 5vw, 60px) var(--pad-section-x) clamp(60px, 10vw, 120px) var(--pad-section-x)' }}>
         {/* Step Indicator Header */}
         <div
           style={{
             display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
             justifyContent: 'space-between',
             alignItems: 'baseline',
             borderBottom: '2px solid #0B0B0B',
             paddingBottom: '16px',
             fontFamily: 'var(--font-mono)',
-            fontSize: '13px',
+            fontSize: '12px',
             fontWeight: 700,
           }}
         >
@@ -92,12 +94,12 @@ export const Start: React.FC = () => {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(44px, 8vw, 120px)',
+            fontSize: 'var(--type-hero)',
             fontWeight: 900,
             lineHeight: 0.9,
             textTransform: 'uppercase',
             letterSpacing: '-0.02em',
-            margin: '32px 0 36px 0',
+            margin: 'clamp(24px, 3.5vw, 32px) 0 clamp(24px, 3.5vw, 36px) 0',
           }}
         >
           TELL US <br />
@@ -129,7 +131,7 @@ export const Start: React.FC = () => {
           <form onSubmit={handleNext}>
             {/* STEP 01: IDENTITY */}
             {currentStep === 1 && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', maxWidth: '720px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '720px' }}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700 }}>
                   01 // WHO ARE YOU?
                 </div>
@@ -148,7 +150,7 @@ export const Start: React.FC = () => {
                       setFormData({ ...formData, name: e.target.value });
                     }}
                     placeholder="e.g. Alex Thorne"
-                    style={{ width: '100%', padding: '16px', fontSize: '18px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
+                    style={{ width: '100%', boxSizing: 'border-box', padding: '16px', fontSize: '16px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
                   />
                 </div>
 
@@ -166,7 +168,7 @@ export const Start: React.FC = () => {
                       setFormData({ ...formData, brand: e.target.value });
                     }}
                     placeholder="e.g. Obscura Audio"
-                    style={{ width: '100%', padding: '16px', fontSize: '18px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
+                    style={{ width: '100%', boxSizing: 'border-box', padding: '16px', fontSize: '16px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
                   />
                 </div>
 
@@ -184,7 +186,7 @@ export const Start: React.FC = () => {
                       setFormData({ ...formData, email: e.target.value });
                     }}
                     placeholder="alex@obscura.studio"
-                    style={{ width: '100%', padding: '16px', fontSize: '18px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
+                    style={{ width: '100%', boxSizing: 'border-box', padding: '16px', fontSize: '16px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
                   />
                 </div>
               </div>
@@ -196,19 +198,19 @@ export const Start: React.FC = () => {
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700, marginBottom: '24px' }}>
                   02 // WHAT ARE WE MAKING?
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '14px' }}>
                   {['Website', 'E-commerce', 'Digital Product', 'Custom Software', 'Interactive Campaign', 'Not Sure Yet'].map((type) => (
                     <button
                       type="button"
                       key={type}
                       onClick={() => setFormData({ ...formData, projectType: type })}
                       style={{
-                        padding: '24px 16px',
+                        padding: '20px 16px',
                         backgroundColor: formData.projectType === type ? '#0B0B0B' : '#fff',
                         color: formData.projectType === type ? '#C7FF32' : '#0B0B0B',
                         border: '2px solid #0B0B0B',
                         fontFamily: 'var(--font-mono)',
-                        fontSize: '14px',
+                        fontSize: '13px',
                         fontWeight: 700,
                         cursor: 'pointer',
                         textAlign: 'left',
@@ -240,7 +242,7 @@ export const Start: React.FC = () => {
                     setFormData({ ...formData, problem: e.target.value });
                   }}
                   placeholder="e.g. Our current storefront looks like every standard Shopify theme and our bounce rate is 64%. We need an interface that feels like our actual clothes."
-                  style={{ width: '100%', padding: '16px', fontSize: '18px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
+                  style={{ width: '100%', boxSizing: 'border-box', padding: '16px', fontSize: '16px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
                 />
               </div>
             )}
@@ -251,14 +253,14 @@ export const Start: React.FC = () => {
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700, marginBottom: '24px' }}>
                   04 // WHAT MATTERS MOST TO SUCCESS?
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                   {['Brand Reputation', 'Direct Sales & Conversion', 'Interaction & Craft', 'Speed & Performance', 'Internal Autonomy', 'Cultural Noise'].map((prio) => (
                     <button
                       type="button"
                       key={prio}
                       onClick={() => setFormData({ ...formData, priority: prio })}
                       style={{
-                        padding: '24px 16px',
+                        padding: '20px 16px',
                         backgroundColor: formData.priority === prio ? '#0B0B0B' : '#fff',
                         color: formData.priority === prio ? '#C7FF32' : '#0B0B0B',
                         border: '2px solid #0B0B0B',
@@ -283,19 +285,19 @@ export const Start: React.FC = () => {
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700, marginBottom: '24px' }}>
                   05 // BUDGET RANGE
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))', gap: '14px' }}>
                   {['$15k – $25k', '$25k – $50k', '$50k – $90k', '$90k+'].map((range) => (
                     <button
                       type="button"
                       key={range}
                       onClick={() => setFormData({ ...formData, budget: range })}
                       style={{
-                        padding: '24px 16px',
+                        padding: '20px 16px',
                         backgroundColor: formData.budget === range ? '#0B0B0B' : '#fff',
                         color: formData.budget === range ? '#C7FF32' : '#0B0B0B',
                         border: '2px solid #0B0B0B',
                         fontFamily: 'var(--font-mono)',
-                        fontSize: '15px',
+                        fontSize: '14px',
                         fontWeight: 700,
                         cursor: 'pointer',
                         textAlign: 'center',
@@ -314,14 +316,14 @@ export const Start: React.FC = () => {
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700, marginBottom: '24px' }}>
                   06 // TARGET LAUNCH TIMEFRAME
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))', gap: '14px' }}>
                   {['Q4 2026', 'Q1 2027', 'Q2 2027', 'Flexible / Quality First'].map((date) => (
                     <button
                       type="button"
                       key={date}
                       onClick={() => setFormData({ ...formData, targetDate: date })}
                       style={{
-                        padding: '20px',
+                        padding: '18px 14px',
                         backgroundColor: formData.targetDate === date ? '#0B0B0B' : '#fff',
                         color: formData.targetDate === date ? '#C7FF32' : '#0B0B0B',
                         border: '2px solid #0B0B0B',
@@ -349,13 +351,13 @@ export const Start: React.FC = () => {
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Links to references, weird requirements, Figma files, or specific non-negotiables."
-                  style={{ width: '100%', padding: '16px', fontSize: '18px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
+                  style={{ width: '100%', boxSizing: 'border-box', padding: '16px', fontSize: '16px', border: '2px solid #0B0B0B', background: '#fff', fontFamily: 'var(--font-mono)' }}
                 />
               </div>
             )}
 
             {/* Form Controls */}
-            <div style={{ display: 'flex', gap: '20px', marginTop: '48px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginTop: 'clamp(32px, 4vw, 48px)', alignItems: 'center' }}>
               {currentStep > 1 && (
                 <button
                   type="button"
@@ -367,7 +369,7 @@ export const Start: React.FC = () => {
                     backgroundColor: 'transparent',
                     color: '#0B0B0B',
                     border: '2px solid #0B0B0B',
-                    padding: '16px 28px',
+                    padding: '14px 24px',
                     fontFamily: 'var(--font-mono)',
                     fontSize: '13px',
                     fontWeight: 700,
@@ -385,7 +387,7 @@ export const Start: React.FC = () => {
                   backgroundColor: '#0B0B0B',
                   color: '#C7FF32',
                   border: '2px solid #0B0B0B',
-                  padding: '16px 36px',
+                  padding: '14px 32px',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '13px',
                   fontWeight: 700,
@@ -405,7 +407,7 @@ export const Start: React.FC = () => {
           </form>
         ) : (
           /* COMPLETION VIEW */
-          <div style={{ maxWidth: '800px', border: '2px solid #0B0B0B', backgroundColor: '#fff', padding: '48px', boxShadow: '12px 12px 0px #0B0B0B' }}>
+          <div style={{ maxWidth: '800px', border: '2px solid #0B0B0B', backgroundColor: '#fff', padding: 'clamp(24px, 4vw, 48px)', boxShadow: 'clamp(6px, 1.2vw, 12px) clamp(6px, 1.2vw, 12px) 0px #0B0B0B' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#EC3D31', fontWeight: 700, letterSpacing: '0.15em', marginBottom: '16px' }}>
               // DISPATCH ACKNOWLEDGED
             </div>
@@ -413,7 +415,7 @@ export const Start: React.FC = () => {
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(40px, 6vw, 76px)',
+                fontSize: 'clamp(36px, 5.5vw, 76px)',
                 fontWeight: 900,
                 lineHeight: 0.95,
                 margin: 0,
@@ -425,11 +427,11 @@ export const Start: React.FC = () => {
               EVERY WORD.
             </h2>
 
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '20px', marginTop: '24px', lineHeight: 1.5, color: '#333' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', marginTop: '20px', lineHeight: 1.5, color: '#333' }}>
               Thanks, {formData.name || 'there'}. We review every project inquiry personally. You will receive a direct reply from our design & engineering team within 24 business hours.
             </p>
 
-            <div style={{ marginTop: '36px', display: 'flex', gap: '20px' }}>
+            <div style={{ marginTop: '32px', display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
               <Link to="/" className="btn-raw-solid" style={{ backgroundColor: '#0B0B0B', color: '#C7FF32' }}>
                 RETURN HOME
               </Link>
